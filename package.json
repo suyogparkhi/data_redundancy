@@ -1,0 +1,58 @@
+{
+  "name": "data-redundancy-remover",
+  "version": "1.0.0",
+  "description": "Data Redundancy Remover Tool",
+  "main": "main.js",
+  "scripts": {
+    "start": "webpack && electron .",
+    "build": "webpack && electron-builder",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "build": {
+    "appId": "com.example.data-redundancy-remover",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "files": [
+      "**/*",
+      "!**/*.py"
+    ],
+    "extraFiles": [
+      {
+        "from": "backend.py",
+        "to": "resources/backend.py"
+      }
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "electron": "^13.2.1",
+    "electron-builder": "^22.11.7",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.263.1",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}
